@@ -251,27 +251,19 @@ export default function DetailModal({
           sx={{
             width: "calc(100% / 3 + 24px)",
 
-            // 1. Quan trọng: Để layout="fill" hoạt động, Box cha phải có position relative
             position: "relative",
 
-            // 2. Tạo một box hình vuông bằng cách set tỷ lệ khung hình là 1/1
-            // Chiều cao sẽ tự động bằng chiều rộng
             aspectRatio: "1 / 1",
 
             borderRadius: "15px",
-            // Giữ overflow để bo góc được áp dụng cho ảnh bên trong
             overflow: "hidden",
           }}
         >
           <Image
             src={form.image}
             alt={form.name}
-            // 3. layout="fill" sẽ làm ảnh lấp đầy không gian của Box cha (đã có position: 'relative')
             layout="fill"
-            // 4. objectFit="cover" sẽ đảm bảo ảnh che phủ hết Box mà không bị méo (ảnh có thể bị cắt bớt)
             objectFit="cover"
-
-            // 5. Bỏ thuộc tính style không cần thiết đi
           />
         </Box>
       </Box>

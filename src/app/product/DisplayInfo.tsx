@@ -101,7 +101,7 @@ function DisplayInfo() {
           elevation={0}
           sx={{
             flex: 1,
-            backgroundImage: "linear-gradient(135deg, #ffdec9, #ffdec9)", // Từ cam nhạt (#FFE0B2) đến cam đậm (#FB8C00)
+            backgroundImage: "linear-gradient(135deg, #ffdec9, #ffdec9)",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",

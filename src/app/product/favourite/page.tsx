@@ -58,8 +58,7 @@ const Iproducts = [
     inStock: true,
     isHot: true,
   },
-  // Lưu ý: bạn có 2 sản phẩm với id=4, trong React key nên là duy nhất.
-  // Tôi sẽ giữ nguyên để khớp với code của bạn, nhưng đã sửa id cuối thành 5 để ví dụ hoạt động tốt hơn.
+
   {
     id: 3,
     image: "/images/toan12.jpg",
@@ -89,7 +88,7 @@ const Iproducts = [
     isHot: true,
   },
   {
-    id: 5, // Sửa id để tránh trùng lặp key
+    id: 5,
     image: "/images/sinhhoc.jpg",
     company: "Sinh học",
     name: "Sinh học 12",
@@ -117,7 +116,7 @@ const Iproducts = [
     isHot: true,
   },
   {
-    id: 7, // Sửa id để tránh trùng lặp key
+    id: 7,
     image: "/images/tienganh.jpg",
     company: "Tiếng anh",
     name: "Tiếng anh 12",
@@ -137,7 +136,7 @@ const FavouritePage = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const likedIds = getLikedProducts(); // Lấy danh sách ID đã thích từ localStorage
+    const likedIds = getLikedProducts();
     const likedProducts = Iproducts.filter((product) =>
       likedIds.includes(product.id)
     );

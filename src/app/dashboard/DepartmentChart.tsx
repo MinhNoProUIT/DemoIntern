@@ -5,13 +5,11 @@ import { Paper, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "next-themes";
 
-// ✅ Interface mô tả dữ liệu phòng ban
 interface IDepartmentGetAllDashboard {
   Department: string;
   Count: number;
 }
 
-// ✅ Dữ liệu mẫu
 const mockData: IDepartmentGetAllDashboard[] = [
   { Department: "Hoàn thành", Count: 9 },
   { Department: "Chưa hoàn thành", Count: 91 },

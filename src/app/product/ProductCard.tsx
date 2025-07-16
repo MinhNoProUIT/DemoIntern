@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
 
   const handleLikeClick = () => {
     const newLikedStatus = toggleProductLike(product.id);
-    setLiked(newLikedStatus); // Cập nhật UI ngay lập tức
+    setLiked(newLikedStatus);
   };
 
   return (
@@ -49,34 +49,29 @@ const ProductCard = ({ product }) => {
         display: "flex",
         flexDirection: "column",
         mb: 3,
-        // Add hover effect for the entire card itself
         "&:hover": {
-          boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.1)", // Slightly stronger shadow on hover
-          // Target the overlay within THIS specific card when it's hovered
+          boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.1)",
           "& .hover-overlay": {
-            // Use a class name or data attribute for more specific targeting
             opacity: 1,
             visibility: "visible",
           },
           "& .hover-icon-favorite": {
-            // Target individual icons with delay
             transform: "translateY(0)",
             opacity: 1,
           },
           "& .hover-icon-cart": {
             transform: "translateY(0)",
             opacity: 1,
-            transitionDelay: "0.1s", // Delayed transition
+            transitionDelay: "0.1s",
           },
           "& .hover-icon-buy": {
             transform: "translateY(0)",
             opacity: 1,
-            transitionDelay: "0.2s", // Further delayed transition
+            transitionDelay: "0.2s",
           },
         },
       }}
     >
-      {/* Discount Percentage */}
       {product.discountPercentage && (
         <Box
           sx={{
@@ -100,7 +95,6 @@ const ProductCard = ({ product }) => {
           {product.discountPercentage}%
         </Box>
       )}
-      {/* HOT Tag */}
       {product.isHot && (
         <Box
           sx={{
@@ -135,7 +129,6 @@ const ProductCard = ({ product }) => {
         />
       )}
 
-      {/* Product Image */}
       <Box
         sx={{
           width: "100%",
@@ -155,10 +148,8 @@ const ProductCard = ({ product }) => {
           objectFit="cover"
         />
 
-        {/* Hover Icons Overlay */}
-        {/* Add a specific class name or data attribute to target this element */}
         <Box
-          className="hover-overlay" // Add this class name
+          className="hover-overlay"
           sx={{
             position: "absolute",
             top: 0,
@@ -171,22 +162,21 @@ const ProductCard = ({ product }) => {
             alignItems: "center",
             gap: 1,
             bgcolor: "rgba(0, 0, 0, 0.5)",
-            opacity: 0, // Hidden by default
-            visibility: "hidden", // Hidden by default
-            transition: "opacity 0.3s ease, visibility 0.3s ease", // Smooth transition
+            opacity: 0,
+            visibility: "hidden",
+            transition: "opacity 0.3s ease, visibility 0.3s ease",
           }}
         >
-          {/* Individual Icons */}
           <IconButton
             onClick={handleLikeClick}
-            className="hover-icon-favorite" // Add class name
+            className="hover-icon-favorite"
             sx={{
               color: "white",
               bgcolor: "rgba(255,255,255,0.2)",
               "&:hover": { bgcolor: "rgba(255,255,255,0.4)" },
-              transform: "translateY(20px)", // Start slightly down
+              transform: "translateY(20px)",
               opacity: 0,
-              transition: "transform 0.3s ease, opacity 0.3s ease", // Base transition for icons
+              transition: "transform 0.3s ease, opacity 0.3s ease",
             }}
             aria-label="Add to favorites"
           >
@@ -197,28 +187,28 @@ const ProductCard = ({ product }) => {
             )}
           </IconButton>
           <IconButton
-            className="hover-icon-cart" // Add class name
+            className="hover-icon-cart"
             sx={{
               color: "white",
               bgcolor: "rgba(255,255,255,0.2)",
               "&:hover": { bgcolor: "rgba(255,255,255,0.4)" },
               transform: "translateY(20px)",
               opacity: 0,
-              transition: "transform 0.3s ease, opacity 0.3s ease", // Transition will be overridden by parent hover
+              transition: "transform 0.3s ease, opacity 0.3s ease",
             }}
             aria-label="Add to cart"
           >
             <ShoppingCartOutlinedIcon />
           </IconButton>
           <IconButton
-            className="hover-icon-buy" // Add class name
+            className="hover-icon-buy"
             sx={{
               color: "white",
               bgcolor: "rgba(255,255,255,0.2)",
               "&:hover": { bgcolor: "rgba(255,255,255,0.4)" },
               transform: "translateY(20px)",
               opacity: 0,
-              transition: "transform 0.3s ease, opacity 0.3s ease", // Transition will be overridden by parent hover
+              transition: "transform 0.3s ease, opacity 0.3s ease",
             }}
             aria-label="Buy now"
           >
@@ -227,7 +217,6 @@ const ProductCard = ({ product }) => {
         </Box>
       </Box>
 
-      {/* Product Details (rest of your existing code) */}
       <Box sx={{ p: 2, flexGrow: 1, display: "flex", flexDirection: "column" }}>
         <Box
           sx={{

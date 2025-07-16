@@ -1,4 +1,3 @@
-// src/components/EmployeeCountChart.js
 import React, { useState } from "react";
 import {
   Box,
@@ -11,7 +10,7 @@ import {
 import ReactECharts from "echarts-for-react";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
-import { SelectChangeEvent } from "@mui/material"; // Import SelectChangeEvent
+import { SelectChangeEvent } from "@mui/material";
 
 const EmployeeCountChart = () => {
   const { t } = useTranslation("common");
@@ -52,9 +51,9 @@ const EmployeeCountChart = () => {
         fontFamily: "Arial, sans-serif",
       },
       formatter: (name: string) => {
-        const year = name.split(" ")[1]; // Lấy năm từ tên
-        const total = year === selectedYear.toString() ? "1.23k" : "6.79k"; // Thay đổi giá trị tổng theo năm
-        return `${name} (${t("COMMON.DASHBOARD.SUM")}: ${total})`; // Thay đổi cách hiển thị
+        const year = name.split(" ")[1];
+        const total = year === selectedYear.toString() ? "1.23k" : "6.79k";
+        return `${name} (${t("COMMON.DASHBOARD.SUM")}: ${total})`;
       },
       itemGap: 30,
     },
@@ -66,7 +65,7 @@ const EmployeeCountChart = () => {
     },
     xAxis: {
       type: "category",
-      boundaryGap: true, // Để cột không chạm vào nhau
+      boundaryGap: true,
       axisLine: {
         lineStyle: {
           color: theme === "dark" ? "#919EAB" : "#637381",
@@ -112,20 +111,20 @@ const EmployeeCountChart = () => {
         name: t("COMMON.DASHBOARD.YEAR") + " " + (selectedYear - 1).toString(),
         type: "bar",
         data: [10, 12, 15, 20, 18, 21, 23, 37, 20, 29, 28, 28],
-        barWidth: "27%", // Điều chỉnh độ rộng của cột
+        barWidth: "27%",
         itemStyle: {
           color: "#d24c2f",
-          borderRadius: [6, 6, 0, 0], // Bo tròn đỉnh cột
+          borderRadius: [6, 6, 0, 0],
         },
       },
       {
         name: t("COMMON.DASHBOARD.YEAR") + " " + selectedYear.toString(),
         type: "bar",
         data: [28, 28, 26, 25, 20, 22, 0, 0, 0, 0, 0, 0],
-        barWidth: "27%", // Điều chỉnh độ rộng của cột
+        barWidth: "27%",
         itemStyle: {
           color: "#00a76f",
-          borderRadius: [6, 6, 0, 0], // Bo tròn đỉnh cột
+          borderRadius: [6, 6, 0, 0],
         },
       },
     ],
@@ -184,7 +183,7 @@ const EmployeeCountChart = () => {
                 borderColor: "var(--border-color)",
               },
               "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                border: "1px solid var(--border-color)", // Đặt border cho trạng thái focus
+                border: "1px solid var(--border-color)",
               },
               "& fieldset": {
                 borderRadius: "8px",
@@ -226,11 +225,11 @@ const EmployeeCountChart = () => {
               },
               anchorOrigin: {
                 vertical: "bottom",
-                horizontal: "right", // Căn chỉnh bên phải
+                horizontal: "right",
               },
               transformOrigin: {
                 vertical: "top",
-                horizontal: "right", // Căn chỉnh bên phải
+                horizontal: "right",
               },
             }}
           >

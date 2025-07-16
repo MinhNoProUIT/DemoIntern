@@ -263,15 +263,15 @@ function ContractExpPage() {
   // Lọc dữ liệu theo status
   const filteredData = useMemo(() => {
     switch (currentTab) {
-      case 0: // All
+      case 0:
         return errorsData;
-      case 1: // Pending
+      case 1:
         return errorsData.filter((item) => item.Status === "0");
-      case 2: // In Progress
+      case 2:
         return errorsData.filter((item) => item.Status === "1");
-      case 3: // Resolved
+      case 3:
         return errorsData.filter((item) => item.Status === "2");
-      case 4: // Rejected
+      case 4:
         return errorsData.filter((item) => item.Status === "3");
       default:
         return errorsData;

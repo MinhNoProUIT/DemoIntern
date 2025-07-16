@@ -122,7 +122,7 @@ const Iproducts = [
     isHot: true,
   },
   {
-    id: 7, // Sửa id để tránh trùng lặp key
+    id: 7,
     image: "/images/tienganh.jpg",
     company: "Tiếng anh",
     name: "Tiếng anh 12",
@@ -164,68 +164,54 @@ const HomePage = () => {
 
   const handleCollapse = (e) => {
     e.preventDefault();
-    setLimit(INITIAL_PRODUCT_LIMIT); // Đặt lại limit về giá trị ban đầu
+    setLimit(INITIAL_PRODUCT_LIMIT);
   };
 
-  // 1. Lọc danh sách sản phẩm dựa trên khoảng giá
-  // Biến này sẽ được tính toán lại mỗi khi component render (tức là mỗi khi priceRange thay đổi)
   const filteredProducts = products.filter((product) => {
-    // Điều kiện 1: Sản phẩm phải nằm trong khoảng giá đã chọn
     const inPriceRange =
       product.currentPrice >= priceRange[0] &&
       product.currentPrice <= priceRange[1];
 
-    // Điều kiện 2: Sản phẩm phải khớp với từ khóa tìm kiếm
-    let matchesSearchKey = true; // Mặc định là true nếu không có từ khóa tìm kiếm
+    let matchesSearchKey = true;
     if (searchKey) {
       const value = product[searchBy];
       if (typeof value === "number") {
         matchesSearchKey = value === Number(searchKey);
       } else {
-        // Đảm bảo `value` không bị null hoặc undefined trước khi gọi toLowerCase()
         matchesSearchKey =
           value?.toLowerCase().includes(searchKey.toLowerCase()) || false;
       }
     }
 
-    // Trả về true CHỈ KHI cả hai điều kiện đều đúng
     return inPriceRange && matchesSearchKey;
   });
 
   const handleGetSuggestions = async () => {
-    // 1. Lấy danh sách ID đã xem và đã thích từ localStorage
     const viewedIds = getViewHistory();
     const likedIds = getLikedProducts();
 
     console.log("Sending to API:", { viewedIds, likedIds });
 
     try {
-      // 2. Gọi API bằng phương thức POST
       const response = await fetch("/api/suggestions", {
-        method: "POST", // Quan trọng: dùng phương thức POST
+        method: "POST",
         headers: {
-          "Content-Type": "application/json", // Báo cho server biết chúng ta đang gửi dữ liệu JSON
+          "Content-Type": "application/json",
         },
-        // Chuyển đổi object Javascript thành chuỗi JSON để gửi đi
         body: JSON.stringify({ viewedIds, likedIds }),
       });
 
-      // 3. Lấy kết quả trả về từ API
       const result = await response.json();
 
-      // Kiểm tra xem API có trả về lỗi hay không
       if (!response.ok) {
-        // Ném lỗi để khối catch() bên dưới có thể bắt được
         throw new Error(result.message || "Something went wrong with the API");
       }
 
-      // 4. In kết quả trả về từ API ra console của trình duyệt để kiểm tra
       console.log("API Response:", result);
       alert(
         "Gọi API thành công! Dữ liệu đã được gửi và nhận lại. Kiểm tra F12 Console."
       );
     } catch (error) {
-      // Xử lý lỗi nếu gọi API thất bại
       console.error("Failed to call suggestion API:", error);
       alert(`Lỗi khi gọi API: ${error.message}`);
     }
@@ -234,17 +220,15 @@ const HomePage = () => {
     const viewedIds = getViewHistory();
     const viewedProducts = products.filter((p) => viewedIds.includes(p.id));
 
-    // Sắp xếp lại danh sách lịch sử theo thứ tự xem gần nhất
     viewedProducts.sort(
       (a, b) => viewedIds.indexOf(a.id) - viewedIds.indexOf(b.id)
     );
 
     const historyNames = viewedProducts.map((p) => p.name).join("\n");
-    //alert(`Lịch sử đã xem:\n${historyNames}`);
+    //alert(`Lịch sử đã xem:\n${historyNams}`);
 
     setHistoryData(viewedProducts);
     setIsFormHistoryOpen(true);
-    // Trong ứng dụng thật, bạn sẽ điều hướng đến một trang mới hoặc hiển thị một danh sách
   };
 
   return (
@@ -271,7 +255,7 @@ const HomePage = () => {
             boxShadow: "var(--box-shadow-paper)",
             borderRadius: "15px",
             overflow: "hidden",
-            height: "fit-content", // Giúp box này không bị kéo dài không cần thiết
+            height: "fit-content",
           }}
         >
           <Box>
@@ -367,8 +351,8 @@ const HomePage = () => {
               <Slider
                 range
                 min={0}
-                max={85000000} // Cập nhật max
-                step={100000} // Bước nhảy lớn hơn cho dễ kéo
+                max={50000000}
+                step={100000}
                 value={priceRange}
                 onChange={handleSliderChange}
                 style={{ marginBottom: "20px" }}
@@ -407,7 +391,7 @@ const HomePage = () => {
                   href="#"
                   underline="hover"
                   sx={{ color: "primary.main", fontWeight: "bold" }}
-                  onClick={handleShowAll} // 3. Gắn hàm xử lý
+                  onClick={handleShowAll}
                 >
                   {t("COMMON.XEMTATCA")}
                 </Link>
@@ -425,7 +409,6 @@ const HomePage = () => {
                 },
               }}
             >
-              {/* 2. Sử dụng danh sách đã lọc để render */}
               {filteredProducts.slice(0, limit).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -447,7 +430,6 @@ const HomePage = () => {
                   </Link>
                 </Box>
               )}
-            {/* Bạn có thể làm tương tự cho "Hot Sales" hoặc các mục khác */}
           </Box>
         </Box>
       </Box>

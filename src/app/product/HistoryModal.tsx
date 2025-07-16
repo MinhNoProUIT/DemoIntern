@@ -85,7 +85,7 @@ export default function CoursesTable({
 
   useEffect(() => {
     if (initialData && initialData.length > 0) {
-      setForm(initialData[0]); // hoặc item đầu tiên nào đó nếu cần
+      setForm(initialData[0]);
     } else {
       setForm({
         image: "",
@@ -179,7 +179,7 @@ export default function CoursesTable({
               sx={{
                 backgroundColor: "#9affb3",
                 "& th": {
-                  backgroundColor: "#9affb3", // Áp dụng cho các ô
+                  backgroundColor: "#9affb3",
                 },
                 "&:last-child td, &:last-child th": {
                   border: "none",
@@ -311,9 +311,6 @@ export default function CoursesTable({
           <TableBody>
             {sortedCourses.map((course) => (
               <TableRow key={form.image} hover>
-                {/* ID */}
-
-                {/* Title */}
                 <TableCell
                   align="center"
                   sx={{
@@ -328,7 +325,6 @@ export default function CoursesTable({
                   {course.company}
                 </TableCell>
 
-                {/* Topic */}
                 <TableCell
                   align="center"
                   sx={{
@@ -343,7 +339,6 @@ export default function CoursesTable({
                   {course.name}
                 </TableCell>
 
-                {/* Level */}
                 <TableCell
                   align="center"
                   sx={{
@@ -377,7 +372,6 @@ export default function CoursesTable({
                   {course.savings}
                 </TableCell>
 
-                {/* Description */}
                 <TableCell
                   align="center"
                   sx={{
@@ -392,7 +386,6 @@ export default function CoursesTable({
                   {course.rating}
                 </TableCell>
 
-                {/* Image */}
                 <TableCell
                   align="center"
                   sx={{

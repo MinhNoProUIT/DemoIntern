@@ -9,8 +9,7 @@ const SaleByGenderChart = () => {
   const { t } = useTranslation("common");
   const { theme } = useTheme();
 
-  // 🟢 Dữ liệu mẫu thay cho API
-  const isFetching = false; // Set true để test loading
+  const isFetching = false;
   const ages = {
     LessThan32: 10,
     Between32And45: 15,
@@ -60,14 +59,14 @@ const SaleByGenderChart = () => {
           "> 45" === name
             ? ages?.GreaterThan45Percentage?.toFixed(2)
             : name === "< 32"
-              ? ages?.LessThan32Percentage?.toFixed(2)
-              : ages?.Between32And45Percentage?.toFixed(2);
+            ? ages?.LessThan32Percentage?.toFixed(2)
+            : ages?.Between32And45Percentage?.toFixed(2);
         const newName =
           "> 45" === name
             ? t("COMMON.DASHBOARD.SUM_EMPLOYEE_OVER_45")
             : name === "< 32"
-              ? t("COMMON.DASHBOARD.SUM_EMPLOYEE_UNDER_32")
-              : t("COMMON.DASHBOARD.SUM_EMPLOYEE_32_TO_45");
+            ? t("COMMON.DASHBOARD.SUM_EMPLOYEE_UNDER_32")
+            : t("COMMON.DASHBOARD.SUM_EMPLOYEE_32_TO_45");
         return `${newName}  (${percent}%)`;
       },
       selectedMode: false,
