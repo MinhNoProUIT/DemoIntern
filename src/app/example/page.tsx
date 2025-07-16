@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import DisplayInfo from "./DisplayInfo";
 import TableAttendance from "./TableAttendance";
 import WelfareApplication from "./welfareapplication";

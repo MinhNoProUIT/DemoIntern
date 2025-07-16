@@ -92,15 +92,15 @@ const aggregateEmployees = () => {
   >();
 
   for (const post of mockPosts) {
-    if (!map.has(post.createdById)) {
-      map.set(post.createdById, {
-        id: post.createdById,
-        name: post.createdBy,
-        avatar: post.createdByAvatar,
+    if (!map.has(post.createdById ?? "")) {
+      map.set(post.createdById ?? "", {
+        id: post.createdById ?? "",
+        name: post.createdBy ?? "",
+        avatar: post.createdByAvatar ?? "",
         count: post.totalPosts,
       });
     } else {
-      const existing = map.get(post.createdById)!;
+      const existing = map.get(post.createdById ?? "")!;
       existing.count += post.totalPosts;
     }
   }

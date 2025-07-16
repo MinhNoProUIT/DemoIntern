@@ -7,14 +7,12 @@ import LayoutAdmin from "@/components/Layout";
 import ToastContainer from "@/components/ToastContainer";
 import { ThemeProvider } from "@/components/theme-provider";
 import ProtectedLayout from "@/components/ProtectedLayout";
-import ProtectedLayoutUser from "@/components/ProtectedLayoutUser";
 
 export default function ClientProviders({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
   const isAdmin = true;
 
   return (

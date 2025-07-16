@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import React from "react";
 import Leaderboard from "./learningRank";
 import LearningInfo from "./learningInfo";
-import TopicChart from "./topicChart";
 import LearningTable from "./LearningTable";
 
 export default function page() {

@@ -125,7 +125,7 @@ export default function LeaveRequestCarousel() {
     sliderRef.current?.slickGoTo(prevSlide);
   };
 
-  const handleButtonClick = async (isAccepted) => {
+  const handleButtonClick = () => {
     //await updateIsAccepted({ id: dataTimeOff[currentSlide]?.Id, isAccepted })
     refetch();
   };
@@ -473,7 +473,7 @@ export default function LeaveRequestCarousel() {
             },
             textTransform: "none",
           }}
-          onClick={() => handleButtonClick(false)}
+          onClick={() => handleButtonClick()}
         >
           {t("COMMON.DASHBOARD.REJECT")}
         </Button>
@@ -493,7 +493,7 @@ export default function LeaveRequestCarousel() {
             },
             textTransform: "none",
           }}
-          onClick={() => handleButtonClick(true)}
+          onClick={() => handleButtonClick()}
         >
           {t("COMMON.DASHBOARD.ACCEPT")}
         </Button>

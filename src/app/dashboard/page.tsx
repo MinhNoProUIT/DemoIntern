@@ -2,12 +2,10 @@
 
 import { Box } from "@mui/material";
 import DisplayInfo from "./DisplayInfo";
-import ContractExpPage from "./ContractExp";
 import ChartSalary from "./ChartSalary";
 import DepartmentChart from "./DepartmentChart";
 import LeaveApplication from "./LeaveApplication";
 import EmployeeCountChart from "./EmployeeCountChart";
-import AgeDistributionChart from "./AgeChart";
 import ErrorReport from "./ErrorReport";
 
 const AdminPage = () => {

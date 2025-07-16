@@ -1,5 +1,4 @@
 "use client";
-import { formatDate } from "@/utils/formatDate";
 import {
   Box,
   Select,
@@ -18,13 +17,10 @@ import {
   InputAdornment,
   TableSortLabel,
   Avatar,
-  FormControl,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import SearchIcon from "@mui/icons-material/Search";
-
-import { useCallback } from "react";
 
 export interface IFilterSysConfiguration {
   isActive?: boolean;
@@ -129,22 +125,6 @@ const userLearningList: UserLearning[] = [
   },
 ];
 
-function getContractBgColor(IsPaid: boolean): string {
-  if (IsPaid) {
-    return "var(--bg-success-color)";
-  } else {
-    return "var(--bg-danger-color)";
-  }
-}
-
-function getContractTextColor(IsPaid: boolean): string {
-  if (IsPaid) {
-    return "var(--text-success-color)";
-  } else {
-    return "var(--text-danger-color)";
-  }
-}
-
 function LearningTable() {
   const { t } = useTranslation("common");
   // const router = useRouter()
@@ -180,6 +160,7 @@ function LearningTable() {
   //   const salaryData = responseData?.Data.Records as IUnpaidSalary[];
   //   const totalRecords = responseData?.Data.TotalRecords as number;
   const totalRecords = userLearningList.length;
+  useEffect(() => {}, [setFrom, setTo, filter, year]);
 
   const handleChangePage = (
     event: React.ChangeEvent<unknown>,
@@ -192,10 +173,6 @@ function LearningTable() {
         pageNumber: newPage,
       };
     });
-  };
-
-  const handleYearChange = (event: SelectChangeEvent<number>) => {
-    setSelectedYear(event.target.value as number);
   };
 
   const handleChangeRowsPerPage = (event: SelectChangeEvent) => {

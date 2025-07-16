@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, Typography, Link } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
@@ -40,61 +40,7 @@ const LoginForm: React.FC = () => {
     router.push("/");
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    // e.preventDefault();
-    // setIsSubmit(true);
-    // if (email === "" || password === "") {
-    //   return;
-    // }
-    // setIsLoading(true);
-    // const loginData = {
-    //   Email: email,
-    //   Password: password,
-    // };
-    // try {
-    //   const responseIP = await fetch("https://api.ipify.org?format=json");
-    //   const IPdata = await responseIP.json();
-    //   const response = await fetch("https://localhost:44381/api/Auth/Login", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json-patch+json",
-    //     },
-    //     body: JSON.stringify(loginData),
-    //   });
-    //   const data = await response.json();
-    //   if (response.ok) {
-    //     const token = data.Data.auth_token;
-    //     sessionStorage.setItem("auth_token", token);
-    //     try {
-    //       var responseAttendance = await createAttendanceUser(
-    //         IPdata.ip
-    //       ).unwrap();
-    //       await refetch();
-    //       if (infoData !== null) {
-    //         if (infoData?.IsAdmin === false) {
-    //           router.push("/user");
-    //         } else {
-    //           router.push("/admin");
-    //         }
-    //       } else {
-    //         return;
-    //       }
-    //       sessionStorage.setItem("AttendanceId", responseAttendance.Data.Id);
-    //       toast("Đăng nhập thành công!", "success");
-    //     } catch (error) {
-    //       console.error("Lỗi từ API:", error);
-    //       sessionStorage.removeItem("auth_token");
-    //       //toast('Đã xảy ra lỗi. Vui lòng thử lại sau!', 'error')
-    //     }
-    //   } else {
-    //     toast(data?.message || "Đăng nhập thất bại!", "error");
-    //   }
-    // } catch {
-    //   //toast('Đã xảy ra lỗi. Vui lòng thử lại sau!', 'error')
-    // } finally {
-    //   setIsLoading(false);
-    // }
-  };
+  useEffect(() => {}, [setIsSubmit, setIsLoading]);
 
   return (
     <Box
@@ -307,7 +253,6 @@ const LoginForm: React.FC = () => {
                     notched
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        handleSubmit(e); // Gọi hàm submit khi nhấn Enter
                       }
                     }}
                     tabIndex={0} // Thêm thuộc tính tabIndex
@@ -412,7 +357,6 @@ const LoginForm: React.FC = () => {
                   notched
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                      handleSubmit(e); // Gọi hàm submit khi nhấn Enter
                     }
                   }}
                   id="outlined-adornment-password"
@@ -512,10 +456,8 @@ const LoginForm: React.FC = () => {
                 textTransform: "none",
                 opacity: isLoading ? 0.7 : 1, // Làm mờ nhẹ khi đang loading
               }}
-              onClick={handleSubmit}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  handleSubmit(e);
                 }
               }}
             >

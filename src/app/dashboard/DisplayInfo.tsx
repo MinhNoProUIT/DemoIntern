@@ -6,6 +6,7 @@ import { Box } from "@mui/material";
 import { TrendingDown } from "lucide-react";
 import Loading from "@/components/Loading";
 import { useGetQuarterStatsQuery } from "@/services/UserService";
+import { useEffect } from "react";
 
 function DisplayInfo() {
   const { t } = useTranslation("common");
@@ -65,6 +66,7 @@ function DisplayInfo() {
   const laborCostsPercent = 25;
   const promotions = 0;
   const promotionPercent = -100;
+  useEffect(() => {}, [yearSalary, monthSalary, isUsersLoading, refetch]);
 
   if (isLoading1 || isLoading2 || isLoading3) {
     return <Loading />;

@@ -2,15 +2,10 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  TextField,
   DialogActions,
   Button,
   Box,
-  Select,
-  MenuItem,
   Typography,
-  InputLabel,
-  FormControl,
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -59,6 +54,7 @@ export default function DetailModal({
     salesCount: 0,
     inStock: true,
     isHot: true,
+    description: "",
   });
 
   useEffect(() => {
@@ -76,6 +72,7 @@ export default function DetailModal({
         salesCount: 0,
         inStock: true,
         isHot: true,
+        description: "",
       });
   }, [initialData]);
 
@@ -128,7 +125,7 @@ export default function DetailModal({
           textAlign: "center",
         }}
       >
-        {initialData ? t("Chi tiết") : t("Nội dung lỗi")}
+        {initialData ? t("COMMON.CHITIET") : t("Nội dung lỗi")}
       </DialogTitle>
 
       <Box
@@ -165,7 +162,7 @@ export default function DetailModal({
                   gap: "5px",
                 }}
               >
-                <Typography>{t("Môn học: ")}</Typography>
+                <Typography>{t("COMMON.MONHOC") + ":"}</Typography>
                 <Typography>{form.company}</Typography>
               </Box>
               <Box
@@ -175,7 +172,7 @@ export default function DetailModal({
                   gap: "5px",
                 }}
               >
-                <Typography>{t("Khóa học: ")}</Typography>
+                <Typography>{t("COMMON.TENKHOAHOC") + ":"}</Typography>
                 <Typography>{form.name}</Typography>
               </Box>
               <Box
@@ -185,8 +182,8 @@ export default function DetailModal({
                   gap: "5px",
                 }}
               >
-                <Typography>{t("Chi tiết khóa học: ")}</Typography>
-                <Typography>{form.company}</Typography>
+                <Typography>{t("COMMON.CHITIETKHOAHOC") + ":"}</Typography>
+                <Typography>{form.description}</Typography>
               </Box>
               <Box
                 sx={{
@@ -195,7 +192,7 @@ export default function DetailModal({
                   gap: "5px",
                 }}
               >
-                <Typography>{t("Giá gốc: ")}</Typography>
+                <Typography>{t("COMMON.GIAGOC") + ":"}</Typography>
                 <Typography>
                   {form.originalPrice.toLocaleString("vi-VN")} VND
                 </Typography>
@@ -207,7 +204,7 @@ export default function DetailModal({
                   gap: "5px",
                 }}
               >
-                <Typography>{t("Giá hiện tại: ")}</Typography>
+                <Typography>{t("COMMON.GIAKHUYENMAI") + ":"}</Typography>
                 <Typography>
                   {form.currentPrice.toLocaleString("vi-VN")} VND
                 </Typography>
@@ -219,7 +216,7 @@ export default function DetailModal({
                   gap: "5px",
                 }}
               >
-                <Typography>{t("Đánh giá:")} </Typography>
+                <Typography>{t("COMMON.DANHGIA") + ":"} </Typography>
                 <Typography>{form.rating}</Typography>
               </Box>
               <Box
@@ -229,7 +226,7 @@ export default function DetailModal({
                   gap: "5px",
                 }}
               >
-                <Typography>{t("Số lượng đã bán: ")}</Typography>
+                <Typography>{t("COMMON.SOLUONGDABAN") + ":"}</Typography>
                 <Typography>{form.salesCount}</Typography>
               </Box>
               <Box
@@ -239,9 +236,9 @@ export default function DetailModal({
                   gap: "5px",
                 }}
               >
-                <Typography>{t("Tình trạng: ")}</Typography>
+                <Typography>{t("COMMON.TINHTRANG") + ":"}</Typography>
                 <Typography>
-                  {form.inStock ? "Còn hàng" : "Hết hàng"}
+                  {form.inStock ? t("COMMON.CONHANG") : t("COMMON.HETHANG")}
                 </Typography>
               </Box>
             </Box>
@@ -286,7 +283,7 @@ export default function DetailModal({
             textTransform: "none",
           }}
         >
-          {t("Đóng")}
+          {t("COMMON.DONG")}
         </Button>
       </DialogActions>
     </Dialog>

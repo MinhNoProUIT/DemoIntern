@@ -47,6 +47,7 @@ const UpdateEmployeePageSimplified = () => {
     "https://localhost:44381/avatars/aa1678f0-75b0-48d2-ae98-50871178e9bd.jfif" // Default placeholder
   );
   const [file, setFile] = useState<File | null>(null);
+  useEffect(() => {}, [setId, file]);
 
   // State to trigger validation visuals
   const [isSubmit, setIsSubmit] = useState(false);

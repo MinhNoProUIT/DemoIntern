@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { Box, keyframes } from "@mui/material";
 import { useEffect, useState } from "react";
 import MainLoader from "@/components/MainLoader";

@@ -41,7 +41,7 @@ const mockTransactions: ITransactionListItem[] = [
   {
     id: "#10111606",
     name: "Trần Văn Minh",
-    avatar: null,
+    avatar: "/images/tienganh.jpg",
     amount: 500000,
     date: new Date("2025-06-09"),
     content: "Thanh toán đơn hàng",
@@ -49,7 +49,7 @@ const mockTransactions: ITransactionListItem[] = [
   {
     id: "#10111607",
     name: "Cao Dương Lâm",
-    avatar: null,
+    avatar: "/images/tienganh.jpg",
     amount: 10000,
     date: new Date("2025-06-09"),
     content: "Chuyển khoản bạn bè",
@@ -57,7 +57,7 @@ const mockTransactions: ITransactionListItem[] = [
   {
     id: "#10111603",
     name: "Đỗ Văn Phong",
-    avatar: null,
+    avatar: "/images/tienganh.jpg",
     amount: 240000,
     date: new Date("2025-06-06"),
     content: "Thanh toán hóa đơn điện",
@@ -65,7 +65,7 @@ const mockTransactions: ITransactionListItem[] = [
   {
     id: "#10111602",
     name: "Bùi Thị Phương Huyền",
-    avatar: null,
+    avatar: "/images/tienganh.jpg",
     amount: 70000,
     date: new Date("2025-06-05"),
     content: "Mua hàng online",
@@ -73,7 +73,7 @@ const mockTransactions: ITransactionListItem[] = [
   {
     id: "#10111605",
     name: "Lê Xuân Nam",
-    avatar: null,
+    avatar: "/images/tienganh.jpg",
     amount: 10000,
     date: new Date("2025-06-05"),
     content: "Đóng học phí",
@@ -81,7 +81,7 @@ const mockTransactions: ITransactionListItem[] = [
   {
     id: "#10111610",
     name: "Lê Ngọc Ngà",
-    avatar: null,
+    avatar: "/images/tienganh.jpg",
     amount: 10000,
     date: new Date("2025-06-06"),
     content: "Thuê nhà",
@@ -89,7 +89,7 @@ const mockTransactions: ITransactionListItem[] = [
   {
     id: "#10111611",
     name: "Nguyễn Đức Minh",
-    avatar: null,
+    avatar: "/images/tienganh.jpg",
     amount: 500000,
     date: new Date("2025-06-07"),
     content: "Mua vé máy bay",
@@ -97,7 +97,7 @@ const mockTransactions: ITransactionListItem[] = [
   {
     id: "#10111613",
     name: "Trần Tuấn Khoa",
-    avatar: null,
+    avatar: "/images/tienganh.jpg",
     amount: 10000,
     date: new Date("2025-06-08"),
     content: "Đi ăn nhà hàng",

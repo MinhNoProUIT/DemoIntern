@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react"; // Ensure React is imported
+import React, { useEffect, useState } from "react"; // Ensure React is imported
 import { useRouter } from "next/navigation";
 import {
   Box,
@@ -32,7 +32,7 @@ import {
   Pencil,
   Trash2,
   LockKeyhole,
-  KeyRound,
+  //KeyRound,
 } from "lucide-react"; // Correct icons imported
 import SearchIcon from "@mui/icons-material/Search";
 import { useTranslation } from "react-i18next";
@@ -72,6 +72,7 @@ function EmployeeTable() {
   const [targetItemStatus, setTargetItemStatus] = useState<boolean | null>(
     null
   ); // Current status for lock/unlock
+  useEffect(() => {}, [targetItemStatus]);
 
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [rowsPerPage, setRowsPerPage] = useState("10");
@@ -199,9 +200,6 @@ function EmployeeTable() {
   };
 
   // Close Dialog Handler (Ensures state reset on manual close/cancel)
-  const handleCloseDialog = () => {
-    resetDialogState();
-  };
 
   // --- Dynamic Content for Dialog ---
   const getDialogContent = () => {
@@ -440,60 +438,55 @@ function EmployeeTable() {
                     sx={{ color: "var(--text-color)", width: "48px" }}
                   />
                 </TableCell>
-                {columnKeys.map(
-                  (
-                    columnKey,
-                    index // Added index
-                  ) => (
-                    <TableCell
-                      key={columnKey}
+                {columnKeys.map((columnKey) => (
+                  <TableCell
+                    key={columnKey}
+                    sx={{
+                      borderColor: "var(--border-color)",
+                      backgroundColor: "var(--header-color-table)",
+                      // Make first data column sticky if needed
+                      // position: index === 0 ? 'sticky' : 'static',
+                      // left: index === 0 ? 60 : 'auto', // Adjust based on checkbox width
+                      // zIndex: index === 0 ? 1 : 0,
+                      minWidth:
+                        columnKey === "id"
+                          ? 150
+                          : columnKey === "fullname"
+                          ? 200
+                          : 120, // Example min widths
+                    }}
+                  >
+                    <TableSortLabel
+                      active={sortConfig.key === columnKey}
+                      direction={
+                        sortConfig.key === columnKey
+                          ? sortConfig.direction
+                          : "asc"
+                      }
+                      onClick={() => handleSort(columnKey)}
                       sx={{
-                        borderColor: "var(--border-color)",
-                        backgroundColor: "var(--header-color-table)",
-                        // Make first data column sticky if needed
-                        // position: index === 0 ? 'sticky' : 'static',
-                        // left: index === 0 ? 60 : 'auto', // Adjust based on checkbox width
-                        // zIndex: index === 0 ? 1 : 0,
-                        minWidth:
-                          columnKey === "id"
-                            ? 150
-                            : columnKey === "fullname"
-                            ? 200
-                            : 120, // Example min widths
+                        "& .MuiTableSortLabel-icon": {
+                          color: "var(--text-color) !important",
+                        },
                       }}
                     >
-                      <TableSortLabel
-                        active={sortConfig.key === columnKey}
-                        direction={
-                          sortConfig.key === columnKey
-                            ? sortConfig.direction
-                            : "asc"
-                        }
-                        onClick={() => handleSort(columnKey)}
+                      <Typography
                         sx={{
-                          "& .MuiTableSortLabel-icon": {
-                            color: "var(--text-color) !important",
-                          },
+                          fontWeight: "bold",
+                          color: "var(--text-color)",
+                          fontSize: "16px",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
                         }}
                       >
-                        <Typography
-                          sx={{
-                            fontWeight: "bold",
-                            color: "var(--text-color)",
-                            fontSize: "16px",
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            whiteSpace: "nowrap",
-                          }}
-                        >
-                          {columnKey === "id"
-                            ? "ID"
-                            : t(getTranslationKey(columnKey))}
-                        </Typography>
-                      </TableSortLabel>
-                    </TableCell>
-                  )
-                )}
+                        {columnKey === "id"
+                          ? "ID"
+                          : t(getTranslationKey(columnKey))}
+                      </Typography>
+                    </TableSortLabel>
+                  </TableCell>
+                ))}
                 <TableCell
                   sx={{
                     borderColor: "var(--border-color)",

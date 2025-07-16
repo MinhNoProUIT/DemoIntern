@@ -51,19 +51,6 @@ const Sidebar: FC<{ children: ReactNode }> = ({ children }) => {
         >
           <div className="h-[60px] flex items-center justify-between px-3">
             {/* Logo/Image sẽ chỉ hiển thị khi sidebar mở rộng */}
-            <img
-              onClick={handleClick}
-              src="/images/icon_test.jpg"
-              style={{
-                height: "45px",
-                transition: "all 300ms ease-in-out",
-              }}
-              className={`
-        overflow-hidden transition-all cursor-pointer duration-300 ease-in-out
-        ${expanded ? "w-[140px] opacity-150" : "w-0 opacity-0"}
-    `}
-              alt=""
-            />
 
             {/* Nút bấm sẽ luôn được đẩy về phía bên phải */}
             <button
@@ -71,8 +58,12 @@ const Sidebar: FC<{ children: ReactNode }> = ({ children }) => {
               style={{
                 borderRadius: "6px",
                 padding: "5px",
+
                 justifyContent: "center",
                 alignItems: "center",
+                ...(expanded
+                  ? { marginLeft: 220, transition: "all 300ms ease-in-out" }
+                  : { transition: "all 300ms cubic-bezier(0.58, 1, 0.42, 0)" }),
               }}
               className={`
         bg-[var(--background-color)]
@@ -267,7 +258,7 @@ export const SidebarItem: FC<SidebarItemProps> = ({
           <ChevronLast
             style={{
               transform: isExpanded ? "rotate(90deg)" : "rotate(0)",
-              transition: "transform 200ms ease-in-out",
+              transition: "transform 300ms ease-in-out",
               marginLeft: "auto",
             }}
           />

@@ -13,9 +13,9 @@ export default function Header() {
   const pathname = usePathname();
   const { mapPathName, mapParentPathName } = usePathMaps();
 
-  const path = mapPathName[pathname];
+  const path = pathname ? mapPathName[pathname] : "";
 
-  const parentPath = mapParentPathName[pathname];
+  const parentPath = pathname ? mapParentPathName[pathname] : "";
 
   return (
     <Stack

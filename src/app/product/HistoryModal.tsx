@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  IconButton,
   Box,
   Table,
   TableBody,
@@ -11,14 +10,8 @@ import {
   TableSortLabel,
   Dialog,
 } from "@mui/material";
-import {
-  VisibilityOutlined,
-  EditOutlined,
-  DeleteOutline,
-} from "@mui/icons-material";
-import { ICourse } from "@/interfaces/course.interface";
+
 import { useTranslation } from "react-i18next";
-import { IGetAllCourses } from "@/models/Course";
 
 export const getLevelBgColor = (level: string) => {
   switch (level) {
@@ -203,7 +196,7 @@ export default function CoursesTable({
                     },
                   }}
                 >
-                  <b>{t("COMMON.COURSES.TABLE.title")}</b>
+                  <b>{t("COMMON.MONHOC")}</b>
                 </TableSortLabel>
               </TableCell>
               <TableCell
@@ -223,7 +216,7 @@ export default function CoursesTable({
                     },
                   }}
                 >
-                  <b>{t("COMMON.COURSES.TABLE.topic")}</b>
+                  <b>{t("COMMON.TENKHOAHOC")}</b>
                 </TableSortLabel>
               </TableCell>
               <TableCell
@@ -242,7 +235,7 @@ export default function CoursesTable({
                     },
                   }}
                 >
-                  <b>{t("COMMON.COURSES.TABLE.level")}</b>
+                  <b>{t("COMMON.GIAKHUYENMAI")}</b>
                 </TableSortLabel>
               </TableCell>
 
@@ -263,7 +256,7 @@ export default function CoursesTable({
                     },
                   }}
                 >
-                  <b>Price</b>
+                  <b>{t("COMMON.GIAKHUYENMAI")}</b>
                 </TableSortLabel>
               </TableCell>
               <TableCell
@@ -282,7 +275,7 @@ export default function CoursesTable({
                     },
                   }}
                 >
-                  <b>{t("COMMON.COURSES.TABLE.description")}</b>
+                  <b>{t("COMMON.DANHGIA")}</b>
                 </TableSortLabel>
               </TableCell>
               <TableCell

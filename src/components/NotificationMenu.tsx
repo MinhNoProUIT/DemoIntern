@@ -1,8 +1,7 @@
 "use client";
 
 import { Badge, Box } from "@mui/material";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+
 import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import { useRouter } from "next/navigation";
 
@@ -16,7 +15,6 @@ const NotificationMenu = ({ isUser }: Props) => {
   const router = useRouter();
 
   const anchorRef = useRef<HTMLDivElement | null>(null);
-  const [open, setOpen] = useState(false);
   const unreadCount: number = 3; // 🎯 Giá trị tạm, bạn có thể để 0, 5, 10...
 
   const handleClick = () => {

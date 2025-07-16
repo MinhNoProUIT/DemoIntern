@@ -1,14 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Avatar,
   Box,
   InputAdornment,
-  MenuItem,
-  Pagination,
   Paper,
-  Select,
-  SelectChangeEvent,
   Table,
   TableBody,
   TableCell,
@@ -17,7 +13,6 @@ import {
   TableRow,
   TableSortLabel,
   TextField,
-  Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -86,11 +81,6 @@ const MOCK_DATA: IContractExp[] = [
 ];
 
 export default function ContractExpPage() {
-  const [filter, setFilter] = useState<IFilterEmploymentContract>({
-    pageSize: 5,
-    pageNumber: 1,
-    daysUntilExpiration: 180,
-  });
   const [keyword, setKeyword] = useState("");
   const [orderBy, setOrderBy] = useState("FullName");
   const [order, setOrder] = useState<"asc" | "desc">("asc");

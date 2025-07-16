@@ -184,7 +184,9 @@ function ContractExpPage() {
       return {
         ...prev,
         isType:
-          uniqueType === "COMMON.NOTIFICATION_TYPE.PUBLIC" ? null : uniqueType,
+          uniqueType === "COMMON.NOTIFICATION_TYPE.PUBLIC"
+            ? undefined
+            : uniqueType,
       };
     });
     setTypeNotification(uniqueType);
@@ -210,6 +212,8 @@ function ContractExpPage() {
     setOrder,
     setOrderBy,
     setOpenModal,
+    filter,
+    isFetching,
   ]);
 
   const handleChangePage = (

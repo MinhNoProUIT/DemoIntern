@@ -4,7 +4,6 @@ import React from "react";
 import { Avatar, Box, Paper, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Star } from "lucide-react";
-import { IPostListItem } from "@/interfaces/post.interface";
 import Image from "next/image";
 
 interface learningCount {
